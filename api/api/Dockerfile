@@ -1,7 +1,13 @@
-FROM mcr.microsoft.com/dotnet/aspnet:3.1
+FROM mcr.microsoft.com/dotnet/sdk:3.1
 
 WORKDIR /api
 
-COPY bin/Debug/netcoreapp3.1/publish .
+COPY . .
 
-ENTRYPOINT [ "dotnet", "/api/api.dll" ]
+RUN dotnet restore
+
+RUN dotnet publish -o /publish
+
+WORKDIR /publish
+
+ENTRYPOINT [ "dotnet", "/publish/api.dll" ]
