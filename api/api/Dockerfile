@@ -1,13 +1,15 @@
-FROM mcr.microsoft.com/dotnet/sdk:3.1
-
+# Build Stage
+FROM mcr.microsoft.com/dotnet/sdk:3.1 AS build-env
 WORKDIR /api
 
-COPY . .
-
+COPY api.csproj .
 RUN dotnet restore
 
-RUN dotnet publish -o /publish
+COPY . .
+RUN dotnet publish -c Release -o /out
 
-WORKDIR /publish
-
-ENTRYPOINT [ "dotnet", "/publish/api.dll" ]
+# Runtine Image Stage
+FROM mcr.microsoft.com/dotnet/aspnet:3.1
+WORKDIR /out
+COPY --from=build-env /out .
+ENTRYPOINT [ "dotnet", "api.dll" ]

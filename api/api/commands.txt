@@ -1,0 +1,52 @@
+-- build an image from dockerfile from the current location
+docker build -t talktoamitdhir/kubernetes:build .
+
+-- list all images
+docker image ls
+
+-- run particular image in an interactive mode
+docker run -it -p 8080:80 talktoamitdhir/kubernetes:multi
+
+-- build and run image using docker compose
+docker-compose up -d --build
+
+-- display the logs
+docker-compose logs -f
+
+-- display all running processes in the container
+docker-compose ps
+
+-- oppo of up 
+docker-compose down 
+
+-- stop docker container with container id starting with de
+docker stop de
+
+-- list all running containers
+docker container ls || docker ps
+
+-- start already created but stopped container with container id b4
+docker container start -it b4
+
+-- inspect the JSON of running container to get infor like IP address
+docker inspect d233869bce17
+
+-- run particular command in running container - helps in debugging some time
+docker exec -it d233869bce17   cmd.exe
+
+-- working directory
+pwd
+
+-- login to docker hub regist
+docker login
+
+-- pull image from regis
+docker image pull mcr.microsoft.com/dotnet/sdk:3.1
+
+-- push image to regis
+docker push talktoamitdhir/kubernetes
+
+
+
+
+
