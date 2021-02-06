@@ -7,6 +7,11 @@ docker image ls
 -- run particular image in an interactive mode
 docker run -it -p 8080:80 talktoamitdhir/kubernetes:multi
 
+-- list down all process inside the container
+ps axf
+helps debugging, directly from VS.
+Container runs all the time during development debugging.
+
 -- build and run image using docker compose
 docker-compose up -d --build
 
@@ -45,6 +50,43 @@ docker image pull mcr.microsoft.com/dotnet/sdk:3.1
 
 -- push image to regis
 docker push talktoamitdhir/kubernetes
+
+-- bernetes 
+-- get all kubernetes details
+kubectl get all 
+
+-- Get version
+kubectl version
+
+-- Get Cluster information
+kubectl cluster-info
+
+-- Get all the pod details
+kubectl get pods
+
+-- Run kubernetes dashboard
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
+
+-- get the token
+kubectl describe secret -n kube-system
+
+-- Run UI on local
+kubectl proxy
+https://medium.com/@shikharsrivastava_14544/automation-of-ci-cd-pipeline-using-kubernetes-5df5b22edf18
+Paste the token and UI is there.
+
+-- Run the image as a post
+kubectl run ttad -p=8080:80  --image=talktoamitdhir/kubernetes:linux
+
+-- Port Forwarding in kubectl
+kubectl port-forward ttad 8080:80
+
+-- Delete the pod
+bectl delete pod [name of the pod]
+
+-- 
+
+
 
 
 
