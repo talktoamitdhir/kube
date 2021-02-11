@@ -67,12 +67,10 @@ kubectl get pods
 -- Run kubernetes dashboard
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/v2.0.0/aio/deploy/recommended.yaml
 
--- get the token
+-- bernetes Dashboard - get the token
 kubectl describe secret -n kube-system
-
--- Run UI on local
 kubectl proxy
-https://medium.com/@shikharsrivastava_14544/automation-of-ci-cd-pipeline-using-kubernetes-5df5b22edf18
+http://localhost:8001/api/v1/namespaces/kubernetes-dashboard/services/https:kubernetes-dashboard:/proxy/#/overview?namespace=default
 Paste the token and UI is there.
 
 -- Run the image as a post
@@ -84,7 +82,29 @@ kubectl port-forward ttad 8080:80
 -- Delete the pod
 bectl delete pod [name of the pod]
 
+-- Delete the Pod
+kubectl delete pod podname
+
+-- perform a trial create  
+kubectl create -f filename --dry-run --validate=true
+
+-- apply YAML file
+kubectl apply -f filepath.
+
+-- Get YAML of a kubectl resource - equivalent to inspect
+kubectl get pod web-api -o yaml
+
+or 
+
+kubectl describe pod pod name
+
+-- Equivalent to exec in docker
+kubectl exec web-api (name of the pod) -it sh
+
 -- 
+
+
+
 
 
 
