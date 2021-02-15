@@ -1,4 +1,14 @@
 cd .\my-web-api\
 dotnet run
 
-http://localhost:5000/swagger/index.html
+http://localhost:5000/docs/index.html
+
+#Build a latest version of an image
+docker build -t talktoamitdhir/kubernetes:linux .
+
+#Push to docker.io registery 
+docker image push talktoamitdhir/kubernetes:linux
+
+kubectl delete deployment.apps/my-web-api
+kubectl delete service/my-web-api
+

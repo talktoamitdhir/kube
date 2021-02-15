@@ -5,7 +5,7 @@ metadata:
   labels : 
     app : my-web-api
 spec : 
-  #replicas : 2
+  replicas : 2
   selector :
     matchLabels:
       app: my-web-api
@@ -17,11 +17,17 @@ spec :
       containers :
       - name : my-web-api
         image : talktoamitdhir/kubernetes:linux
+        env :
+          - name : BackgroundColor
+            valueFrom :
+              configMapKeyRef :
+                name : my-web-api-config-map
+                key  : config-map-header-color
         ports :
         - containerPort : 80
         resources : 
           limits:
-            memory : "128M"
-            cpu : "200m" 
+            memory : "32M"
+            cpu : "50m" 
 
     
