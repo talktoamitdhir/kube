@@ -38,11 +38,26 @@ namespace api
                 app.UseDeveloperExceptionPage();
             }
 
-            app.UseSwagger();
+            app.UseDefaultFiles();
+
+            app.UseStaticFiles();
+
+            app.UseSwagger(
+                options =>
+                {
+                    options.RouteTemplate = "docs/{documentName}/docs.json";
+                }
+            );
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "My API V1");
+               
+                    c.SwaggerEndpoint("/docs/v1/docs.json", "kubernetes Demo");
+
+                    c.RoutePrefix = "docs";
+
+                    c.InjectStylesheet($"/swagger/{Configuration["BackgroundColor"]}.css");
+               
             });
 
             app.UseRouting();

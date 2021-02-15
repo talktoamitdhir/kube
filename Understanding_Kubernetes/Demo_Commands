@@ -1,2 +1,4 @@
-cd .\api\
+cd .\my-web-api\
 dotnet run
+
+http://localhost:5000/swagger/index.html
