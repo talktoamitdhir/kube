@@ -3,4 +3,4 @@ kind : ConfigMap
 metadata : 
   name : my-web-api-config-map
 data : 
-  config-map-header-color  :  "green"
+  config-map-key-header-color  :  "gray"

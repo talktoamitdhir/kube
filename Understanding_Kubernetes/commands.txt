@@ -101,6 +101,24 @@ kubectl describe pod pod name
 -- Equivalent to exec in docker
 kubectl exec web-api (name of the pod) -it sh
 
+-- Pod Level Logging
+kubectl logs [Pod Name]
+
+-- Get bectl namespaces
+kubectl get namespaces.
+
+-- Set the Namespace for current context for rest of the bectl commands
+kubectl config set-context --current --namespace=<insert-namespace-name-here>
+# Validate it
+kubectl config view --minify | grep namespace:
+
+-- To see which Kubernetes resources are and aren't in a namespace:
+# In a namespace
+kubectl api-resources --namespaced=true
+
+# Not in a namespace
+kubectl api-resources --namespaced=false
+
 -- 
 
 

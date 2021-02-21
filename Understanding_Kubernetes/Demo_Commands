@@ -12,3 +12,6 @@ docker image push talktoamitdhir/kubernetes:linux
 kubectl delete deployment.apps/my-web-api
 kubectl delete service/my-web-api
 
+kubectl get all
+
+kubectl describe configMap my-web-api-config-map

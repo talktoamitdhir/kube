@@ -22,12 +22,15 @@ spec :
             valueFrom :
               configMapKeyRef :
                 name : my-web-api-config-map
-                key  : config-map-header-color
+                key  : config-map-key-header-color
         ports :
         - containerPort : 80
         resources : 
           limits:
-            memory : "32M"
-            cpu : "50m" 
+            memory : "128M"
+            cpu : "500m"
+          requests:
+            memory: "64Mi"
+            cpu: "250m"          
 
     
