@@ -1,14 +1,14 @@
 apiVersion : v1
 kind : Service
 metadata : 
-  name : my-web-api
+  name : my-web-api-service
   labels : 
-    app : my-web-api
+    app : my-web-api-service
 spec :  
-  #type : NodePort
+  #type : NodePort  
   type : LoadBalancer
   selector :
-    app : my-web-api
+    app : my-web-api-deployment
   ports :
     - name : http
       port : 80
