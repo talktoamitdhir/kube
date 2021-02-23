@@ -1,0 +1,14 @@
+apiVersion : networking.k8s.io/v1beta1
+kind : Ingress
+metadata : 
+  name : my-web-api-ingress
+  labels : 
+    app : my-web-api-ingress
+spec :  
+  rules  :
+  - host : my-web-api.com
+    http : 
+      paths  : 
+      - backend  :
+          serviceName  :  my-web-api-service
+          servicePort  :  5000    
